@@ -1,5 +1,26 @@
 $(document).ready(function () {
-  let pokemonTypes = ["bug", "dragon", "electric", "fairy", "fighting", "fire", "flying", "ghost", "grass", "ground", "ice", "normal", "poison", "psychic", "rock", "steel", "water", "dark"]
+  let pokemonTypes = [ ]//["bug", "dragon", "electric", "fairy", "fighting", "fire", "flying", "ghost", "grass", "ground", "ice", "normal", "poison", "psychic", "rock", "steel", "water", "dark"]
+
+
+  fetch("https://pokeapi.co/api/v2/type")
+  .then(response => response.json())
+  .then(json => {
+    console.log(Json)
+
+    const pokemontypes = Json. results.map(function (type){
+      return type.name
+    })
+    
+    loadTypes(pokemonTypes)
+  })
+  
+  .catch(erro => console.log(erro));
+
+
+
+
+
+
 
   const request = new XMLHttpRequest();
   const metodo = "GET";
